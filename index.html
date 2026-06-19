@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[品牌名待定] 临时纹身贴 / 高级身体贴饰品牌文案样板</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f2ec;
+      --paper: #fffdf8;
+      --ink: #111111;
+      --muted: #6f6960;
+      --line: #d7d0c4;
+      --soft: #ebe5dc;
+      --button: #111111;
+      --button-text: #fffdf8;
+      --shadow: 0 24px 70px rgba(17, 17, 17, 0.10);
+    }
+
+    body.dark {
+      color-scheme: dark;
+      --bg: #10100f;
+      --paper: #171615;
+      --ink: #f3efe7;
+      --muted: #b6afa3;
+      --line: #36322d;
+      --soft: #22201d;
+      --button: #f3efe7;
+      --button-text: #10100f;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      line-height: 1.62;
+      letter-spacing: 0;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 34px;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(16px);
+    }
+
+    .logo {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .theme-toggle {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--ink);
+      background: var(--paper);
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: calc(100vh - 71px);
+      display: grid;
+      grid-template-columns: minmax(320px, 0.92fr) minmax(360px, 1.08fr);
+      align-items: stretch;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(42px, 7vw, 92px);
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-weight: 500; line-height: 1.08; letter-spacing: 0; }
+    h1 { font-size: clamp(56px, 9vw, 118px); margin-bottom: 24px; }
+    h2 { font-size: clamp(34px, 5vw, 64px); margin-bottom: 20px; }
+    h3 { font-size: 24px; margin-bottom: 12px; }
+
+    .lead {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 25px);
+      margin-bottom: 32px;
+    }
+
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 18px;
+      border: 1px solid var(--ink);
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .btn.primary { background: var(--button); color: var(--button-text); }
+    .btn.secondary { background: transparent; color: var(--ink); }
+
+    .hero-media {
+      position: relative;
+      min-height: 620px;
+      overflow: hidden;
+      border-left: 1px solid var(--line);
+      background: #111;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.08), rgba(0,0,0,0.46));
+      pointer-events: none;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.08);
+      opacity: 0.94;
+    }
+
+    .hero-badge {
+      position: absolute;
+      right: 34px;
+      bottom: 34px;
+      z-index: 2;
+      max-width: 260px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,0.52);
+      color: #fffdf8;
+      background: rgba(0,0,0,0.22);
+      backdrop-filter: blur(10px);
+    }
+
+    section {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 86px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.75fr) minmax(320px, 1fr);
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-head p { color: var(--muted); font-size: 18px; }
+
+    .grid { display: grid; gap: 18px; }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card { min-height: 210px; display: flex; flex-direction: column; justify-content: space-between; }
+    .feature-card span { color: var(--muted); font-size: 13px; }
+    .feature-card p { color: var(--muted); margin-bottom: 0; }
+
+    .gallery-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    .gallery-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .gallery-card img {
+      width: 100%;
+      aspect-ratio: 1.05 / 1;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.04);
+      background: var(--soft);
+      border-bottom: 1px solid var(--line);
+    }
+    .gallery-body { padding: 18px; }
+    .gallery-body p { margin-bottom: 6px; color: var(--muted); }
+
+    .tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+    .tab-button {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px 14px;
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .tab-button[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .direction-layout { display: grid; grid-template-columns: minmax(280px, 0.8fr) minmax(420px, 1.2fr); gap: 20px; }
+    .direction-quote { font-size: 31px; line-height: 1.2; margin: 16px 0; }
+    .mini-list { margin: 0; padding-left: 18px; color: var(--muted); }
+
+    .lifestyle {
+      width: 100%;
+      max-width: none;
+      border-bottom: 1px solid var(--line);
+      background: #111;
+      color: #fffdf8;
+      padding: 0;
+    }
+    .lifestyle-inner {
+      min-height: 520px;
+      display: grid;
+      grid-template-columns: minmax(340px, 0.9fr) minmax(360px, 1.1fr);
+      align-items: center;
+      gap: 0;
+    }
+    .lifestyle-copy { padding: clamp(44px, 7vw, 96px); }
+    .lifestyle-copy p { color: rgba(255,255,255,0.72); font-size: 19px; }
+    .lifestyle-image-grid { display: grid; grid-template-columns: 1fr 1fr; height: 100%; min-height: 520px; }
+    .lifestyle-image-grid img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); opacity: 0.78; }
+
+    .recommend {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border: 1px solid var(--ink);
+      background: var(--paper);
+    }
+    .recommend .slot { padding: 28px; border-right: 1px solid var(--line); }
+    .recommend .slot:last-child { border-right: 0; }
+    .recommend strong { display: block; font-size: 27px; margin: 8px 0; }
+    .recommend p { color: var(--muted); margin-bottom: 0; }
+
+    .copy-module {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .mock-hero { display: flex; flex-direction: column; justify-content: center; min-height: 340px; }
+    .mock-hero h3 { font-size: clamp(34px, 5vw, 68px); }
+    .package {
+      min-height: 340px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border: 1px solid var(--ink);
+      border-radius: 8px;
+      background: var(--paper);
+      padding: 30px;
+    }
+    .package .name { font-size: 34px; }
+    .package .sub { color: var(--muted); margin-top: 12px; }
+
+    footer {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 44px 0 60px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 920px) {
+      .nav { padding: 14px 18px; }
+      .links a { display: none; }
+      .hero, .section-head, .grid.four, .grid.three, .grid.two, .direction-layout, .lifestyle-inner, .copy-module, .recommend { grid-template-columns: 1fr; }
+      .hero-media { min-height: 440px; border-left: 0; border-top: 1px solid var(--line); }
+      .lifestyle-image-grid { min-height: 360px; }
+      .recommend .slot { border-right: 0; border-bottom: 1px solid var(--line); }
+      .recommend .slot:last-child { border-bottom: 0; }
+      section { padding: 58px 0; }
+      footer { flex-direction: column; }
+    }
+
+    @media print {
+      .nav, .tabs, .theme-toggle, .cta-row { display: none !important; }
+      body { background: #fff; color: #000; }
+      section, .lifestyle { break-inside: avoid; }
+      .tab-panel { display: block !important; margin-bottom: 20px; }
+      .card, .gallery-card { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#top">[品牌名待定]</a>
+    <div class="links">
+      <a href="#products">产品</a>
+      <a href="#directions">方案</a>
+      <a href="#recommend">推荐组合</a>
+      <a href="#copy">页面文案</a>
+      <button class="theme-toggle" type="button" aria-label="切换明暗主题" title="切换明暗主题">◐</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="kicker">Temporary body adornments / Fine-line skin jewelry</p>
+        <h1>把纹身贴，戴成身体首饰</h1>
+        <p class="lead">原创细线身体贴饰，适合锁骨、手腕、腰线与每个想换一点风格的今天。</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#products">查看首组图案</a>
+          <a class="btn secondary" href="#directions">比较三套方向</a>
+        </div>
+      </div>
+      <div class="hero-media" aria-label="品牌主视觉">
+        <img src="assets/ea8c1606d805fa295ce7c83486f77c8f.png" alt="黑白细线身体贴饰样板图">
+        <div class="hero-badge">主品牌定位：身体首饰。内容表达：有意义的身体标记。销售卖点：纹身前试戴。</div>
+      </div>
+    </div>
+
+    <section id="promise">
+      <div class="section-head">
+        <h2>把纹身贴，做成可以更换的身体首饰。</h2>
+        <p>这版页面把研究结论转成独立站首屏语言：视觉先建立高级感，内容再解释为什么值得做。</p>
+      </div>
+      <div class="grid four">
+        <article class="card feature-card"><span>01</span><div><h3>像饰品一样佩戴</h3><p>围绕锁骨、手腕、耳后、腰线等露肤位置设计。</p></div></article>
+        <article class="card feature-card"><span>02</span><div><h3>低门槛试戴</h3><p>先试图案、位置和比例，再决定是否继续。</p></div></article>
+        <article class="card feature-card"><span>03</span><div><h3>细线极简视觉</h3><p>黑白、留白、小尺寸，减少廉价贴纸感。</p></div></article>
+        <article class="card feature-card"><span>04</span><div><h3>社媒友好</h3><p>适合穿搭、旅行、约会、礼物和小红书内容。</p></div></article>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="section-head">
+        <h2>产品展示</h2>
+        <p>四张原始 PNG 仅作为样板视觉依据，不修改、不转码、不重命名。现有图片共同支持的方向是：黑白、细线、极简、神秘感、年轻化、身体饰品化潜力。</p>
+      </div>
+      <div class="grid four">
+        <article class="gallery-card"><img src="assets/ea8c1606d805fa295ce7c83486f77c8f.png" alt="原始 PNG 产品展示 1"><div class="gallery-body"><h3>Skin Jewelry</h3><p>锁骨 / 手腕 / 耳后</p></div></article>
+        <article class="gallery-card"><img src="assets/7c5181c814985f4831c6dc846b0fa4ff.png" alt="原始 PNG 产品展示 2"><div class="gallery-body"><h3>Meaningful Marks</h3><p>手腕 / 后颈 / 脚踝</p></div></article>
+        <article class="gallery-card"><img src="assets/32b6c55e350b2eab9292674ddd73c829.png" alt="原始 PNG 产品展示 3"><div class="gallery-body"><h3>Layered Signs</h3><p>锁骨 / 手指 / 腰线</p></div></article>
+        <article class="gallery-card"><img src="assets/4221a6c1c71f0ee7438f05748ed7c2c5.png" alt="原始 PNG 产品展示 4"><div class="gallery-body"><h3>Try Before Ink</h3><p>小臂 / 肩胛 / 脚踝</p></div></article>
+      </div>
+    </section>
+
+    <section id="directions">
+      <div class="section-head">
+        <h2>三大品牌方向</h2>
+        <p>保留 A/B/C 三方案，但改成更像官网里的品牌策略模块。</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="品牌方向切换">
+        <button class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="plan-a">A 身体首饰</button>
+        <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="plan-b">B 有意义的身体标记</button>
+        <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="plan-c">C 纹身前试戴</button>
+      </div>
+
+      <article class="tab-panel active" id="plan-a" role="tabpanel">
+        <div class="direction-layout">
+          <div class="card"><p class="kicker">Recommended as master brand</p><h3>方案 A：身体首饰</h3><p class="direction-quote">不是纹身贴，是可以更换的身体首饰。</p><p>适合官网、包装、商品详情页和长期主品牌。</p></div>
+          <div class="grid two"><div class="card"><h3>Slogan</h3><ul class="mini-list"><li>把纹身贴，戴成身体首饰。</li><li>让皮肤多一件轻饰品。</li><li>Wear it like jewelry.</li></ul></div><div class="card"><h3>卖点</h3><ul class="mini-list"><li>细线留白</li><li>局部适配</li><li>可单贴、可叠戴</li></ul></div></div>
+        </div>
+      </article>
+      <article class="tab-panel" id="plan-b" role="tabpanel">
+        <div class="direction-layout">
+          <div class="card"><p class="kicker">Best for content</p><h3>方案 B：有意义的身体标记</h3><p class="direction-quote">把当下想记住的情绪，留在皮肤上。</p><p>适合小红书传播、礼物、收藏和用户共鸣。</p></div>
+          <div class="grid two"><div class="card"><h3>Slogan</h3><ul class="mini-list"><li>把这一刻，轻轻留在皮肤上。</li><li>不必永远，也值得认真。</li><li>A mark for the moment.</li></ul></div><div class="card"><h3>卖点</h3><ul class="mini-list"><li>主题化图案</li><li>情绪记忆</li><li>关系和人生阶段</li></ul></div></div>
+        </div>
+      </article>
+      <article class="tab-panel" id="plan-c" role="tabpanel">
+        <div class="direction-layout">
+          <div class="card"><p class="kicker">Best for conversion</p><h3>方案 C：纹身前试戴</h3><p class="direction-quote">喜欢一个图案，不必马上决定一辈子。</p><p>适合商品转化、新用户教育和试位置需求。</p></div>
+          <div class="grid two"><div class="card"><h3>Slogan</h3><ul class="mini-list"><li>喜欢一个图案，先让皮肤试试看。</li><li>先试戴，再决定。</li><li>Try before ink.</li></ul></div><div class="card"><h3>卖点</h3><ul class="mini-list"><li>试位置</li><li>试比例</li><li>试穿搭场景</li></ul></div></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="lifestyle" id="lifestyle">
+      <div class="lifestyle-inner">
+        <div class="lifestyle-copy">
+          <p class="kicker">Lifestyle mood</p>
+          <h2>黑白、细线、留白，让身体有一件更轻的首饰。</h2>
+          <p>这一区不新增生成图，改用现有产品图建立 editorial 氛围，降低文件风险并保持离线可交付。</p>
+        </div>
+        <div class="lifestyle-image-grid">
+          <img src="assets/32b6c55e350b2eab9292674ddd73c829.png" alt="黑白身体贴饰氛围图 1">
+          <img src="assets/7c5181c814985f4831c6dc846b0fa4ff.png" alt="黑白身体贴饰氛围图 2">
+        </div>
+      </div>
+    </section>
+
+    <section id="recommend">
+      <div class="section-head"><h2>推荐组合</h2><p>领导版决策不必三选一，而是把三套方案放在不同层级使用。</p></div>
+      <div class="recommend">
+        <div class="slot"><span>主品牌定位</span><strong>身体首饰</strong><p>负责高级感、视觉统一和长期扩展。</p></div>
+        <div class="slot"><span>内容传播</span><strong>有意义的身体标记</strong><p>负责收藏、共鸣、礼物和小红书互动。</p></div>
+        <div class="slot"><span>转化卖点</span><strong>纹身前试戴</strong><p>负责购买理由和新用户教育。</p></div>
+      </div>
+    </section>
+
+    <section id="copy">
+      <div class="section-head"><h2>页面文案样板</h2><p>把提案内容转成官网可见模块：首屏、包装、详情页、小红书主页和感谢卡。</p></div>
+      <div class="copy-module">
+        <article class="card mock-hero"><p class="kicker">Homepage</p><h3>把纹身贴，戴成身体首饰</h3><p class="lead">原创细线身体贴饰，适合锁骨、手腕、腰线与每个想换一点风格的今天。</p></article>
+        <article class="package"><div><div class="name">[品牌名待定]</div><p class="sub">Skin Jewelry Set</p><p>Fine-line temporary body adornments</p><p>Wear it like jewelry.</p></div></article>
+      </div>
+      <div class="grid three" style="margin-top:18px">
+        <article class="card"><h3>商品详情页</h3><p>这不是儿童贴纸式的临时玩具，而是一组可以和衣服、首饰、身体线条一起搭配的细线贴饰。贴在锁骨、手腕、腰线或脚踝，让图案先陪你完成一次约会、旅行、拍照或普通的一天。</p></article>
+        <article class="card"><h3>小红书主页</h3><p>原创细线身体贴饰。把纹身贴，戴成锁骨、手腕和脚踝上的轻首饰。</p></article>
+        <article class="card"><h3>感谢卡</h3><p>谢谢你选择这枚短暂停留的身体首饰。愿它陪你完成今天，也在离开皮肤后，留下一个被认真对待过的瞬间。</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>[品牌名待定] / Temporary Body Adornments</div>
+    <div>样板展示，品牌名、商标、域名及社媒账号尚未验证。</div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const themeButton = document.querySelector('.theme-toggle');
+    const savedTheme = localStorage.getItem('brandCopySampleTheme');
+    if (savedTheme === 'dark') body.classList.add('dark');
+    themeButton.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      localStorage.setItem('brandCopySampleTheme', body.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    const tabs = Array.from(document.querySelectorAll('.tab-button'));
+    const panels = Array.from(document.querySelectorAll('.tab-panel'));
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((item) => item.setAttribute('aria-selected', 'false'));
+        panels.forEach((panel) => panel.classList.remove('active'));
+        tab.setAttribute('aria-selected', 'true');
+        document.getElementById(tab.getAttribute('aria-controls')).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

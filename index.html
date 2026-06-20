@@ -3,19 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>[品牌名待定] 临时纹身贴 / 高级身体贴饰品牌文案样板</title>
+  <title>INKORA 临时纹身贴 / 高级身体贴饰</title>
   <style>
     :root {
       color-scheme: light;
-      --bg: #f5f2ec;
-      --paper: #fffdf8;
+      --bg: #f7f5f0;
+      --paper: #fffefa;
       --ink: #111111;
-      --muted: #6f6960;
-      --line: #d7d0c4;
-      --soft: #ebe5dc;
+      --muted: #716b61;
+      --line: #ddd5ca;
+      --soft: #ece6dc;
       --button: #111111;
       --button-text: #fffdf8;
-      --shadow: 0 24px 70px rgba(17, 17, 17, 0.10);
+      --shadow: 0 12px 32px rgba(17, 17, 17, 0.06);
+      --shadow-hover: 0 18px 44px rgba(17, 17, 17, 0.10);
+      --radius: 16px;
+      --container: 1180px;
+      --section-y: clamp(80px, 10vw, 120px);
     }
 
     body.dark {
@@ -28,7 +32,8 @@
       --soft: #22201d;
       --button: #f3efe7;
       --button-text: #10100f;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+      --shadow: 0 12px 34px rgba(0, 0, 0, 0.26);
+      --shadow-hover: 0 20px 54px rgba(0, 0, 0, 0.36);
     }
 
     * { box-sizing: border-box; }
@@ -37,9 +42,10 @@
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: Arial, "Microsoft YaHei", sans-serif;
-      line-height: 1.62;
-      letter-spacing: 0;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+      text-rendering: optimizeLegibility;
     }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
@@ -52,15 +58,17 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      padding: 16px 34px;
+      padding: 14px clamp(18px, 4vw, 46px);
       border-bottom: 1px solid var(--line);
-      background: color-mix(in srgb, var(--bg) 92%, transparent);
-      backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      backdrop-filter: blur(22px) saturate(1.2);
+      box-shadow: 0 10px 40px rgba(17, 17, 17, 0.04);
     }
 
     .logo {
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: 0.08em;
     }
 
     .links {
@@ -71,67 +79,105 @@
       font-size: 14px;
     }
 
+    .links a {
+      position: relative;
+      padding: 8px 0;
+      transition: color 220ms ease;
+    }
+
+    .links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2px;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 240ms ease;
+    }
+
+    .links a:hover { color: var(--ink); }
+    .links a:hover::after { transform: scaleX(1); transform-origin: left; }
+
     .theme-toggle {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border: 1px solid var(--line);
       border-radius: 50%;
       color: var(--ink);
       background: var(--paper);
       cursor: pointer;
+      box-shadow: 0 10px 24px rgba(17, 17, 17, 0.06);
+      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-2px);
+      border-color: var(--ink);
     }
 
     .hero {
-      min-height: calc(100vh - 71px);
+      min-height: max(80vh, 760px);
       display: grid;
-      grid-template-columns: minmax(320px, 0.92fr) minmax(360px, 1.08fr);
+      grid-template-columns: minmax(340px, 0.95fr) minmax(420px, 1.05fr);
       align-items: stretch;
       border-bottom: 1px solid var(--line);
+      background: linear-gradient(115deg, color-mix(in srgb, var(--paper) 82%, transparent), color-mix(in srgb, var(--soft) 78%, transparent));
     }
 
     .hero-copy {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: clamp(42px, 7vw, 92px);
+      padding: clamp(64px, 9vw, 128px) clamp(28px, 7vw, 104px);
     }
 
     .kicker {
       margin: 0 0 18px;
       color: var(--muted);
       font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
     h1, h2, h3, p { margin-top: 0; }
-    h1, h2, h3 { font-weight: 500; line-height: 1.08; letter-spacing: 0; }
-    h1 { font-size: clamp(56px, 9vw, 118px); margin-bottom: 24px; }
-    h2 { font-size: clamp(34px, 5vw, 64px); margin-bottom: 20px; }
+    h1, h2, h3 { font-weight: 600; line-height: 1.04; letter-spacing: 0.02em; }
+    h1 { font-size: clamp(48px, 7.8vw, 92px); max-width: 780px; margin-bottom: 26px; }
+    h2 { font-size: clamp(34px, 4.8vw, 62px); margin-bottom: 20px; }
     h3 { font-size: 24px; margin-bottom: 12px; }
 
     .lead {
       max-width: 620px;
       color: var(--muted);
-      font-size: clamp(18px, 2vw, 25px);
-      margin-bottom: 32px;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.7;
+      margin-bottom: 38px;
     }
 
-    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 44px;
-      padding: 11px 18px;
+      min-height: 48px;
+      padding: 12px 22px;
       border: 1px solid var(--ink);
-      border-radius: 6px;
+      border-radius: 999px;
       font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
     }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(17, 17, 17, 0.14); }
     .btn.primary { background: var(--button); color: var(--button-text); }
-    .btn.secondary { background: transparent; color: var(--ink); }
+    .btn.secondary { background: color-mix(in srgb, var(--paper) 70%, transparent); color: var(--ink); }
 
     .hero-media {
       position: relative;
-      min-height: 620px;
+      min-height: inherit;
       overflow: hidden;
       border-left: 1px solid var(--line);
       background: #111;
@@ -141,7 +187,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(0,0,0,0.08), rgba(0,0,0,0.46));
+      background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.32)), linear-gradient(90deg, rgba(0,0,0,0.00), rgba(0,0,0,0.42));
       pointer-events: none;
     }
 
@@ -150,7 +196,8 @@
       height: 100%;
       object-fit: cover;
       filter: grayscale(1) contrast(1.08);
-      opacity: 0.94;
+      opacity: 0.96;
+      transform: scale(1.02);
     }
 
     .hero-badge {
@@ -158,18 +205,20 @@
       right: 34px;
       bottom: 34px;
       z-index: 2;
-      max-width: 260px;
-      padding: 18px;
+      max-width: 320px;
+      padding: 22px;
       border: 1px solid rgba(255,255,255,0.52);
+      border-radius: var(--radius);
       color: #fffdf8;
-      background: rgba(0,0,0,0.22);
-      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.26);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
     }
 
     section {
-      width: min(1180px, calc(100% - 40px));
+      width: min(var(--container), calc(100% - 40px));
       margin: 0 auto;
-      padding: 86px 0;
+      padding: var(--section-y) 0;
       border-bottom: 1px solid var(--line);
     }
 
@@ -178,61 +227,84 @@
       grid-template-columns: minmax(260px, 0.75fr) minmax(320px, 1fr);
       gap: 36px;
       align-items: end;
-      margin-bottom: 34px;
+      margin-bottom: 42px;
     }
 
-    .section-head p { color: var(--muted); font-size: 18px; }
+    .section-head p { color: var(--muted); font-size: 18px; line-height: 1.8; }
 
-    .grid { display: grid; gap: 18px; }
+    .grid { display: grid; gap: 22px; }
     .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
     .card {
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: var(--radius);
       background: var(--paper);
       padding: 24px;
       box-shadow: var(--shadow);
+      transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
     }
 
-    .feature-card { min-height: 210px; display: flex; flex-direction: column; justify-content: space-between; }
-    .feature-card span { color: var(--muted); font-size: 13px; }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: color-mix(in srgb, var(--ink) 28%, var(--line));
+      box-shadow: var(--shadow-hover);
+    }
+
+    .feature-card { min-height: 230px; display: flex; flex-direction: column; justify-content: space-between; }
+    .feature-card span { color: var(--muted); font-size: 13px; font-weight: 700; letter-spacing: 0.16em; }
     .feature-card p { color: var(--muted); margin-bottom: 0; }
 
     .gallery-card {
       overflow: hidden;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: var(--radius);
       background: var(--paper);
-      transition: transform 180ms ease, box-shadow 180ms ease;
+      box-shadow: var(--shadow);
+      transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
     }
-    .gallery-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+    body.dark .gallery-card {
+      background: color-mix(in srgb, var(--paper) 86%, #ffffff 14%);
+      border-color: color-mix(in srgb, var(--line) 76%, #ffffff 24%);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.22);
+    }
+
+    body.dark .gallery-body {
+      background: color-mix(in srgb, var(--paper) 88%, #ffffff 12%);
+    }
+
+    .gallery-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--ink) 28%, var(--line)); box-shadow: var(--shadow-hover); }
     .gallery-card img {
       width: 100%;
-      aspect-ratio: 1.05 / 1;
+      aspect-ratio: 0.92 / 1;
       object-fit: cover;
       filter: grayscale(1) contrast(1.04);
       background: var(--soft);
       border-bottom: 1px solid var(--line);
+      transition: transform 260ms ease, filter 260ms ease;
     }
+    .gallery-card:hover img { transform: scale(1.035); filter: grayscale(1) contrast(1.1); }
     .gallery-body { padding: 18px; }
     .gallery-body p { margin-bottom: 6px; color: var(--muted); }
 
-    .tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+    .tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
     .tab-button {
       border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 10px 14px;
+      border-radius: 999px;
+      padding: 11px 16px;
       background: var(--paper);
       color: var(--ink);
       cursor: pointer;
+      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
     }
+    .tab-button:hover { transform: translateY(-2px); border-color: var(--ink); }
     .tab-button[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
-    .direction-layout { display: grid; grid-template-columns: minmax(280px, 0.8fr) minmax(420px, 1.2fr); gap: 20px; }
-    .direction-quote { font-size: 31px; line-height: 1.2; margin: 16px 0; }
+    .direction-layout { display: grid; grid-template-columns: minmax(300px, 0.8fr) minmax(440px, 1.2fr); gap: 22px; }
+    .direction-quote { font-size: clamp(28px, 3.4vw, 42px); line-height: 1.18; margin: 20px 0; }
     .mini-list { margin: 0; padding-left: 18px; color: var(--muted); }
 
     .lifestyle {
@@ -242,24 +314,30 @@
       background: #111;
       color: #fffdf8;
       padding: 0;
+      overflow: hidden;
     }
     .lifestyle-inner {
-      min-height: 520px;
+      min-height: 620px;
       display: grid;
       grid-template-columns: minmax(340px, 0.9fr) minmax(360px, 1.1fr);
       align-items: center;
       gap: 0;
     }
-    .lifestyle-copy { padding: clamp(44px, 7vw, 96px); }
+    .lifestyle-copy { padding: clamp(56px, 8vw, 112px); }
+    .lifestyle-copy h2 { max-width: 720px; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.08; }
     .lifestyle-copy p { color: rgba(255,255,255,0.72); font-size: 19px; }
-    .lifestyle-image-grid { display: grid; grid-template-columns: 1fr 1fr; height: 100%; min-height: 520px; }
-    .lifestyle-image-grid img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); opacity: 0.78; }
+    .lifestyle-image-grid { display: grid; grid-template-columns: 1fr 1fr; height: 100%; min-height: 620px; }
+    .lifestyle-image-grid img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.08); opacity: 0.82; transition: transform 320ms ease, opacity 320ms ease; }
+    .lifestyle-image-grid img:hover { transform: scale(1.025); opacity: 0.92; }
 
     .recommend {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       border: 1px solid var(--ink);
+      border-radius: var(--radius);
       background: var(--paper);
+      overflow: hidden;
+      box-shadow: var(--shadow);
     }
     .recommend .slot { padding: 28px; border-right: 1px solid var(--line); }
     .recommend .slot:last-child { border-right: 0; }
@@ -280,15 +358,16 @@
       place-items: center;
       text-align: center;
       border: 1px solid var(--ink);
-      border-radius: 8px;
+      border-radius: var(--radius);
       background: var(--paper);
       padding: 30px;
+      box-shadow: var(--shadow);
     }
     .package .name { font-size: 34px; }
     .package .sub { color: var(--muted); margin-top: 12px; }
 
     footer {
-      width: min(1180px, calc(100% - 40px));
+      width: min(var(--container), calc(100% - 40px));
       margin: 0 auto;
       padding: 44px 0 60px;
       display: flex;
@@ -301,12 +380,32 @@
       .nav { padding: 14px 18px; }
       .links a { display: none; }
       .hero, .section-head, .grid.four, .grid.three, .grid.two, .direction-layout, .lifestyle-inner, .copy-module, .recommend { grid-template-columns: 1fr; }
-      .hero-media { min-height: 440px; border-left: 0; border-top: 1px solid var(--line); }
-      .lifestyle-image-grid { min-height: 360px; }
+      .hero { min-height: auto; }
+      .hero-copy { padding-top: 56px; padding-bottom: 34px; }
+      .hero-media { min-height: 340px; border-left: 0; border-top: 1px solid var(--line); }
+      .hero-badge { left: 20px; right: 20px; bottom: 20px; max-width: none; padding: 16px; }
+      .feature-card { min-height: 170px; }
+      .grid { gap: 16px; }
+      .gallery-card img { aspect-ratio: 1.08 / 1; }
+      .lifestyle-inner, .lifestyle-image-grid { min-height: 420px; }
       .recommend .slot { border-right: 0; border-bottom: 1px solid var(--line); }
       .recommend .slot:last-child { border-bottom: 0; }
-      section { padding: 58px 0; }
+      section { padding: 56px 0; }
       footer { flex-direction: column; }
+    }
+
+    @media (max-width: 560px) {
+      h1 { font-size: clamp(38px, 11.5vw, 52px); }
+      h2 { font-size: clamp(28px, 9vw, 40px); }
+      .hero-copy { padding-top: 40px; padding-bottom: 26px; }
+      .hero-media { min-height: 300px; }
+      .lead { margin-bottom: 24px; }
+      .btn { width: 100%; min-height: 46px; }
+      .section-head { gap: 18px; }
+      .card, .package { padding: 18px; }
+      .feature-card { min-height: 150px; }
+      .gallery-card img { aspect-ratio: 1.18 / 1; }
+      .lifestyle-image-grid { grid-template-columns: 1fr; }
     }
 
     @media print {
@@ -320,7 +419,7 @@
 </head>
 <body>
   <header class="nav">
-    <a class="logo" href="#top">[品牌名待定]</a>
+    <a class="logo" href="#top">INKORA</a>
     <div class="links">
       <a href="#products">产品</a>
       <a href="#directions">方案</a>
@@ -342,7 +441,7 @@
         </div>
       </div>
       <div class="hero-media" aria-label="品牌主视觉">
-        <img src="assets/ea8c1606d805fa295ce7c83486f77c8f.png" alt="黑白细线身体贴饰样板图">
+        <img src="assets/ea8c1606d805fa295ce7c83486f77c8f.png" alt="黑白细线身体贴饰视觉图">
         <div class="hero-badge">主品牌定位：身体首饰。内容表达：有意义的身体标记。销售卖点：纹身前试戴。</div>
       </div>
     </div>
@@ -363,13 +462,13 @@
     <section id="products">
       <div class="section-head">
         <h2>产品展示</h2>
-        <p>四张原始 PNG 仅作为样板视觉依据，不修改、不转码、不重命名。现有图片共同支持的方向是：黑白、细线、极简、神秘感、年轻化、身体饰品化潜力。</p>
+        <p>首组图案视觉方向统一。现有图片共同支持的方向是：黑白、细线、极简、神秘感、年轻化、身体饰品化潜力。</p>
       </div>
       <div class="grid four">
-        <article class="gallery-card"><img src="assets/ea8c1606d805fa295ce7c83486f77c8f.png" alt="原始 PNG 产品展示 1"><div class="gallery-body"><h3>Skin Jewelry</h3><p>锁骨 / 手腕 / 耳后</p></div></article>
-        <article class="gallery-card"><img src="assets/7c5181c814985f4831c6dc846b0fa4ff.png" alt="原始 PNG 产品展示 2"><div class="gallery-body"><h3>Meaningful Marks</h3><p>手腕 / 后颈 / 脚踝</p></div></article>
-        <article class="gallery-card"><img src="assets/32b6c55e350b2eab9292674ddd73c829.png" alt="原始 PNG 产品展示 3"><div class="gallery-body"><h3>Layered Signs</h3><p>锁骨 / 手指 / 腰线</p></div></article>
-        <article class="gallery-card"><img src="assets/4221a6c1c71f0ee7438f05748ed7c2c5.png" alt="原始 PNG 产品展示 4"><div class="gallery-body"><h3>Try Before Ink</h3><p>小臂 / 肩胛 / 脚踝</p></div></article>
+        <article class="gallery-card"><img src="assets/ea8c1606d805fa295ce7c83486f77c8f.png" alt="INKORA 产品展示 1"><div class="gallery-body"><h3>Skin Jewelry</h3><p>锁骨 / 手腕 / 耳后</p></div></article>
+        <article class="gallery-card"><img src="assets/7c5181c814985f4831c6dc846b0fa4ff.png" alt="INKORA 产品展示 2"><div class="gallery-body"><h3>Meaningful Marks</h3><p>手腕 / 后颈 / 脚踝</p></div></article>
+        <article class="gallery-card"><img src="assets/32b6c55e350b2eab9292674ddd73c829.png" alt="INKORA 产品展示 3"><div class="gallery-body"><h3>Layered Signs</h3><p>锁骨 / 手指 / 腰线</p></div></article>
+        <article class="gallery-card"><img src="assets/4221a6c1c71f0ee7438f05748ed7c2c5.png" alt="INKORA 产品展示 4"><div class="gallery-body"><h3>Try Before Ink</h3><p>小臂 / 肩胛 / 脚踝</p></div></article>
       </div>
     </section>
 
@@ -428,10 +527,10 @@
     </section>
 
     <section id="copy">
-      <div class="section-head"><h2>页面文案样板</h2><p>把提案内容转成官网可见模块：首屏、包装、详情页、小红书主页和感谢卡。</p></div>
+      <div class="section-head"><h2>品牌表达</h2><p>把提案内容转成官网可见模块：首屏、包装、详情页、小红书主页和感谢卡。</p></div>
       <div class="copy-module">
         <article class="card mock-hero"><p class="kicker">Homepage</p><h3>把纹身贴，戴成身体首饰</h3><p class="lead">原创细线身体贴饰，适合锁骨、手腕、腰线与每个想换一点风格的今天。</p></article>
-        <article class="package"><div><div class="name">[品牌名待定]</div><p class="sub">Skin Jewelry Set</p><p>Fine-line temporary body adornments</p><p>Wear it like jewelry.</p></div></article>
+        <article class="package"><div><div class="name">INKORA</div><p class="sub">Skin Jewelry Set</p><p>Fine-line temporary body adornments</p><p>Wear it like jewelry.</p></div></article>
       </div>
       <div class="grid three" style="margin-top:18px">
         <article class="card"><h3>商品详情页</h3><p>这不是儿童贴纸式的临时玩具，而是一组可以和衣服、首饰、身体线条一起搭配的细线贴饰。贴在锁骨、手腕、腰线或脚踝，让图案先陪你完成一次约会、旅行、拍照或普通的一天。</p></article>
@@ -442,8 +541,8 @@
   </main>
 
   <footer>
-    <div>[品牌名待定] / Temporary Body Adornments</div>
-    <div>样板展示，品牌名、商标、域名及社媒账号尚未验证。</div>
+    <div>INKORA / Temporary Body Adornments</div>
+    <div>INKORA — Wear the mark. Keep the freedom.</div>
   </footer>
 
   <script>
